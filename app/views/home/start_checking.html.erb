@@ -1,0 +1,22 @@
+<div class="columns is-centered mt-4">
+  <div class="column is-one-quarter">
+    <div class="card">
+      <div class="card-content">
+        <div class="content">
+          <h3> <%= t("citizenship_checker.questions.#{@checker.question}") %></h3>
+
+          <div class= "columns <%= @checker.final_state? ? 'is-hidden' : '' %>">
+            <div class="column">
+              <%= button_to 'Si!', "/question/#{@checker.id}/yes", class: "button is-success", method: :post %>
+            </div>
+            <div class="column">
+              <%= button_to 'No!', "/question/#{@checker.id}/no", class: "button is-danger", method: :post %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= button_to 'Reset!', "/reset_form", method: :get %>

@@ -1,0 +1,14 @@
+es:
+  citizenship_checker:
+    questions:
+      has_an_italian_ancestor: "¿Tiene un antepasado nacido en Italia?"
+      passed_before_1861: "¿Falleció antes del 17/03/1861?"
+      was_born_on_the_austro_hungarian_empire: "¿Nació en alguna comuna que pertenecía al imperio astrohungaro?"
+      was_born_or_emigrate_after_1920: "¿Nació o emigró después del 16/07/1920?"
+      was_naturalized_before_the_child_was_born: "¿Se naturalizó en tu país antes de que nazca su hijo/a?"
+      are_there_only_male_descendants: "¿Hay solo descendientes hombres?"
+      was_the_descendant_of_the_first_woman_born_after_1948: "¿El hijo/a de la primer mujer nació despues del 1/1/1948?"
+      judicial_way: "Solicitud Via Judicial"
+      administrative_way: "Solicitud Via Administrativa"
+      get_a_lawyer: "Consultar el caso con un Abogado"
+      marry_an_european: "No todo esta perdido, podes casarte con un Europeo!"

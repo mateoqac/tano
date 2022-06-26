@@ -1,0 +1,26 @@
+<div class="columns is-centered mt-4">
+  <div class="column is-half">
+    <div class="card">
+      <div class="card-content">
+        <div class="content">
+          <h1 style="font-family: 'Raleway'; font-style: normal; font-weight: 500;font-size: 64px;
+                    line-height: 75px;">
+            HOLA!
+          </h1>
+
+          <h5 style="font-family: 'Raleway';font-style: normal; font-weight: 400; line-height: 68px;
+                      text-align: center;">
+            Te parece si empezamos con un breve cuestionario?
+          </h5>
+          <p style="font-family: 'Raleway';font-style: normal;font-weight: 300;line-height: 47px;
+                    text-align: center; color: #616161;">
+            Vamos a realizarte unas preguntas para que el proceso sea mas <strong>simple</strong>
+          </p>
+
+          <%= button_to 'Comenzar cuestionario', "/start_checking", style:'background-color:green; color: white', method: :get %>
+          <%= link_to 'Iniciar Sesion',"/login" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
