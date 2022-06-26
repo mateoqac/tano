@@ -1,6 +1,6 @@
 # README
 
-Instalar 3.1.2
+Instalar Ruby 3.1.2
 
 Instalar yarn o npm.
 
