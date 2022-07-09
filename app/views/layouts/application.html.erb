@@ -11,8 +11,13 @@
   </head>
 
   <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
     <div class="container is-fluid">
       <%= yield %>
-    </div>  
+    </div>
   </body>
 </html>

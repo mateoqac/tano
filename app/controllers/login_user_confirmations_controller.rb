@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class LoginUserConfirmationsController < ApplicationController
+  before_action :redirect_if_authenticated, only: %i[create new]
+
   def create
     @login_user = LoginUser.find_by(email: params[:login_user][:email].downcase)
 
@@ -18,6 +20,7 @@ class LoginUserConfirmationsController < ApplicationController
 
     if @login_user.present?
       @login_user.confirm!
+      login @login_user
       redirect_to root_path, notice: 'Tu cuenta fue activada.'
     else
       redirect_to new_login_user_confirmation_path, alert: 'Su token expiro.'

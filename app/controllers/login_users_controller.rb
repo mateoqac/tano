@@ -3,6 +3,8 @@
 # frozen_string_literal: true
 
 class LoginUsersController < ApplicationController
+  before_action :redirect_if_authenticated, only: %i[create new]
+
   def create
     @login_user = LoginUser.new(login_user_params)
     if @login_user.save

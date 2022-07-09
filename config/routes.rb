@@ -3,6 +3,10 @@
 Rails.application.routes.draw do
   root 'home#index'
 
+  post "login", to: "sessions#create"
+  delete "logout", to: "sessions#destroy"
+  get "login", to: "sessions#new"
+  
   post 'sign_up', to: 'login_users#create'
   get 'sign_up', to: 'login_users#new'
   resources :login_user_confirmations, only: [:create, :new, :edit], param: :confirmation_token
