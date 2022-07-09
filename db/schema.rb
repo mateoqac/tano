@@ -10,12 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_12_112538) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_09_073628) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "citizenship_checkers", force: :cascade do |t|
     t.string "question"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "login_users", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "password_digest", null: false
+    t.datetime "confirmed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_login_users_on_email", unique: true
+  end
+
+  create_table "to_do_items", force: :cascade do |t|
+    t.string "task"
+    t.boolean "done"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "to_do_lists_id"
+    t.index ["to_do_lists_id"], name: "index_to_do_items_on_to_do_lists_id"
+  end
+
+  create_table "to_do_lists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "to_do_sub_tasks", force: :cascade do |t|
+    t.string "task"
+    t.boolean "done"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "to_do_items_id"
+    t.index ["to_do_items_id"], name: "index_to_do_sub_tasks_on_to_do_items_id"
+  end
+
+  create_table "workflows", force: :cascade do |t|
+    t.string "workflow_type"
+    t.string "step_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

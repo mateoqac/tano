@@ -12,3 +12,26 @@ es:
       administrative_way: "Solicitud Via Administrativa"
       get_a_lawyer: "Consultar el caso con un Abogado"
       marry_an_european: "No todo esta perdido, podes casarte con un Europeo!"
+  judicial_workflow:
+    states:
+      build_folder: "Armado de carpeta completo"
+      checking_paperwork: "Control de carpeta"
+      sign_power_of_attorney_and_send_folder: "Firma de poder con el abogado y envio de carpeta a Italia"
+      presentation_folder_in_courts: "Presentacion de la carpeta en tribunales"
+      judge_assignment: "Asignacion de juez"
+      get_appointment: "Asignacion de turno"
+      get_the_recognition: "Reconocimiento obtenido (Felicitaciones!!!)"
+      request_transcript_birth_certificate: "Solicitar transacripcion del acta de nacimiento"
+      communication_between_municipality_and_consulate: "Comunicacion entre la comune y el consulado"
+      AIRE_registration: "Inscripcion al AIRE"
+      request_passport: "Solicitar pasaporte"
+      full_italian: "AUGURI! Eres italiano con tu pasaporte en mano."
+  administrative_workflow:
+    states:
+      build_folder: "Armado de carpeta completo"
+      find_accomodation: "Busqueda de alquiler"
+      buy_ticket_and_insurance: "Comprar vuelo y contratar seguro de viaje"
+      entry_to_europe_through_italy: "¿La entrada al espacio Schengen fue por Italia?"
+      declaration_of_presence: "Realizar declaracion de presencia"
+      has_tax_code: "¿Tiene codice fiscale?"
+      get_tax_code: "Solicitar el codice fiscale (Agenzia Entrate)"

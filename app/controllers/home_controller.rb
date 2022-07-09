@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class HomeController < ApplicationController
-  def index
-  end
+  def index; end
 
   def start_checking
     @checker = CitizenshipChecker.first || CitizenshipChecker.create!

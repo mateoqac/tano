@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCitizenshipCheckers < ActiveRecord::Migration[7.0]
   def change
     create_table :citizenship_checkers do |t|
