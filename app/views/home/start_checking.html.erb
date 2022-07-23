@@ -1,6 +1,8 @@
-<div class="columns is-centered mt-4">
-  <div class="column is-one-quarter">
-    <div class="card">
+<%= button_to 'Cerrar Sesion', logout_url, method: :delete if user_signed_in? %>
+
+<div class="columns is-centered mt-6">
+  <div class="column is-half">
+    <div class="card has-text-centered">
       <div class="card-content">
         <div class="content">
           <h3> <%= t("citizenship_checker.questions.#{@checker.question}") %></h3>
@@ -17,6 +19,33 @@
       </div>
     </div>
   </div>
+
+  <% if @checker.final_state?%>
+    <div class="card has-text-centered">
+      <div class="card-content">
+        <div class="content">
+          Dejanos tu email si queres recibir mas informacion sobre como continuar con tu proceso!
+          <div class="field">
+            <div class="control">
+            <%= form_with model: SubscriberUser.new, url: subscriber_user_path do |form| %>
+              <%= form.label :email %>
+              <%= form.email_field :email,required: true, class:"input is-large" %>
+              <%= form.hidden_field :citizenship_checker_id, value: request.query_parameters['id'] %>
+              <hr class="login-hr"></hr>
+              <%= form.submit "Enviarme informacion", class:"button is-block is-success is-large is-fullwidth" %>
+            <% end %>
+            </div>
+
+        </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
 
-<%= button_to 'Reset!', "/reset_form", method: :get %>
+<%
+=begin%>
+Registrate para que podamos seguir ayudandote! <%= link_to "Crear cuenta", sign_up_url(state: @checker.question)%>
+ <%= button_to 'Reset!', "/reset_form", method: :get %> 
+<%
+=end%>

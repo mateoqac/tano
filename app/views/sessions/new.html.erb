@@ -1,11 +1,38 @@
-<%= form_with url: login_path, scope: :login_user do |form| %>
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email, required: true %>
+<div class="hero-body">
+  <div class="container has-text-centered">
+    <div class="column is-4 is-offset-4">
+      <h3 class="title has-text-black">Login</h3>
+
+      <hr class="login-hr"></hr>
+
+      <!-- <p class="subtitle has-text-black">Please login to proceed.</p> -->
+
+      <div class="box">
+        <%= form_with url: login_path, scope: :login_user do |form| %>
+
+        <div class="field">
+          <div class="control">
+            <%= form.label :email %>
+            <%= form.email_field :email,required: true, class:"input is-large" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <%= form.label :password %>
+            <%= form.password_field :password,required: true, class:"input is-large" %>
+          </div>
+        </div>
+
+          <%= form.submit "Iniciar sesion", class:"button is-block is-success is-large is-fullwidth" %>
+          <% end %>
+          <p class="has-text-grey">
+            <%= link_to "Crear cuenta", sign_up_url%>
+
+            <!-- </br> -->
+            <!-- <a href="../">Forgot Password</a> -->
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password, required: true %>
-  </div>
-  <%= form.submit "Sign In" %>
-<% end %>

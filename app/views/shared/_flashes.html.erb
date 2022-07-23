@@ -1,0 +1,8 @@
+<% if flash.any? %>
+  <% flash.each do |type, msg| %>
+  <div class="notification is-<%=type%>" role="alert" onclick="this.style.display='none'">
+    <button class="delete" data-dismiss="alert" aria-label="Close"></button>
+    <%= msg %>
+  </div>
+  <% end %>
+<% end %>

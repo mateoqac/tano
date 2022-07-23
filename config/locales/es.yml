@@ -8,8 +8,8 @@ es:
       was_naturalized_before_the_child_was_born: "¿Se naturalizó en tu país antes de que nazca su hijo/a?"
       are_there_only_male_descendants: "¿Hay solo descendientes hombres?"
       was_the_descendant_of_the_first_woman_born_after_1948: "¿El hijo/a de la primer mujer nació despues del 1/1/1948?"
-      judicial_way: "Solicitud Via Judicial"
-      administrative_way: "Solicitud Via Administrativa"
+      judicial_way: "Solicitud por Via Judicial"
+      administrative_way: "Solicitud por Via Administrativa"
       get_a_lawyer: "Consultar el caso con un Abogado"
       marry_an_european: "No todo esta perdido, podes casarte con un Europeo!"
   judicial_workflow:

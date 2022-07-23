@@ -4,10 +4,10 @@ class SessionsController < ApplicationController
   before_action :redirect_if_authenticated, only: %i[create new]
 
   def create
-    redirect_to new_login_user_confirmation_path, alert: 'Incorrect email or password.' if login_user.unconfirmed?
+    redirect_to new_login_user_confirmation_path, danger: 'Incorrect email or password.' if login_user.unconfirmed?
     if login_user.authenticate(params[:login_user][:password])
       login login_user
-      redirect_to root_path, notice: 'Signed in.'
+      redirect_to root_path, info: 'Signed in.'
     else
       show_alert_and_render_new
     end
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to root_path, notice: 'Signed out.'
+    redirect_to root_path, info: 'Signed out.'
   end
 
   def new; end
@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
   end
 
   def show_alert_and_render_new
-    flash.now[:alert] = 'Incorrect email or password.'
+    flash.now[:danger] = 'Incorrect email or password.'
     render :new, status: :unprocessable_entity
   end
 end

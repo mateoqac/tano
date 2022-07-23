@@ -1,16 +1,40 @@
-<%= form_with model: @login_user, url: sign_up_path do |form| %>
-  <%= render partial: "shared/form_errors", locals: { object: form.object } %>
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email, required: true %>
+<div class="hero-body">
+  <div class="container has-text-centered">
+    <div class="column is-4 is-offset-4">
+      <h3 class="title has-text-black">Login</h3>
+
+      <hr class="login-hr"></hr>
+
+      <div class="box">
+        <%= form_with model: @login_user, url: sign_up_path do |form| %>
+          <%= render partial: "shared/form_errors", locals: { object: form.object } %>
+        <div class="field">
+          <div class="control">
+            <%= form.label :email %>
+            <%= form.email_field :email,required: true, class:"input is-large" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <%= form.label :password %>
+            <%= form.password_field :password, required:true, class:"input is-large" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <%= form.label :password_confirmation %>
+            <%= form.password_field :password_confirmation, required: true, class:"input is-large" %>
+          </div>
+        </div>
+        <%= form.hidden_field :state, value: request.query_parameters['state'] %>
+        <%= form.submit "Crear cuenta", class:"button is-block is-success is-large is-fullwidth" %>
+        <% end %>
+        <p class="has-text-grey">
+          <span> Ya tienes una cuenta? <%= link_to 'Iniciar Sesion', login_url %></span>
+        </p>
+      </div>
+    </div>
   </div>
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password, required: true %>
-  </div>
-  <div>
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, required: true %>
-  </div>
-  <%= form.submit "Sign Up" %>
-<% end %>
+</div>

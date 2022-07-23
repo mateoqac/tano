@@ -10,7 +10,7 @@ class LoginUsersController < ApplicationController
     if @login_user.save
       @login_user.send_confirmation_email!
 
-      redirect_to root_path, notice: 'Por favor, siga las instrucciones enviadas por email para confirmar su cuenta.'
+      redirect_to root_path, info: 'Por favor, siga las instrucciones enviadas por email para confirmar su cuenta.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -23,6 +23,6 @@ class LoginUsersController < ApplicationController
   private
 
   def login_user_params
-    params.require(:login_user).permit(:email, :password, :password_confirmation)
+    params.require(:login_user).permit(:email, :password, :password_confirmation, :state)
   end
 end

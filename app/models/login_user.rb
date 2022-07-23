@@ -9,6 +9,7 @@ class LoginUser < ApplicationRecord
   before_save :downcase_email
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true, uniqueness: true
+  validates :state, inclusion: { in: CitizenshipChecker::FINAL_STATES }, if: :should_validate?
 
   def confirm!
     update_columns(confirmed_at: Time.current)
@@ -35,5 +36,9 @@ class LoginUser < ApplicationRecord
 
   def downcase_email
     self.email = email.downcase
+  end
+
+  def should_validate?
+    state.present?
   end
 end

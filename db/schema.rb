@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_09_073628) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_23_095147) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,7 +26,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_09_073628) do
     t.datetime "confirmed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "state"
     t.index ["email"], name: "index_login_users_on_email", unique: true
+  end
+
+  create_table "subscriber_users", force: :cascade do |t|
+    t.string "email"
+    t.bigint "citizenship_checker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "to_do_items", force: :cascade do |t|

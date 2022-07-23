@@ -8,10 +8,10 @@ class LoginUserConfirmationsController < ApplicationController
 
     if @login_user.present? && @login_user.unconfirmed?
       @user.send_confirmation_email!
-      redirect_to root_path, notice: 'Check your email for confirmation instructions.'
+      redirect_to root_path, info: 'Check your email for confirmation instructions.'
     else
       redirect_to new_login_user_confirmation_path,
-                  alert: 'We could not find a user with that email or that email has already been confirmed.'
+                  danger: 'We could not find a user with that email or that email has already been confirmed.'
     end
   end
 
@@ -21,9 +21,9 @@ class LoginUserConfirmationsController < ApplicationController
     if @login_user.present?
       @login_user.confirm!
       login @login_user
-      redirect_to root_path, notice: 'Tu cuenta fue activada.'
+      redirect_to root_path, info: 'Tu cuenta fue activada.'
     else
-      redirect_to new_login_user_confirmation_path, alert: 'Su token expiro.'
+      redirect_to new_login_user_confirmation_path, danger: 'Su token expiro.'
     end
   end
 
