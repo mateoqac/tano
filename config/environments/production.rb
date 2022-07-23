@@ -74,6 +74,7 @@ Rails.application.configure do
     authentication: :plain,
     enabled_starttls_auto: true
   }
+  ActionMailer::Base.delivery_method = :smtp
 
   config.action_mailer.default_url_options = { host: 'ciudadaniaitalia.com' }
 
