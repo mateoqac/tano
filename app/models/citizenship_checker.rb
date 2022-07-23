@@ -4,7 +4,7 @@ class CitizenshipChecker < ApplicationRecord
   include AASM
 
   FINAL_STATES = %i[judicial_way administrative_way marry_an_european get_a_lawyer].freeze
-  aasm_column :question
+  aasm.attribute_name :question
 
   aasm do
     state :has_an_italian_ancestor, initial: true
