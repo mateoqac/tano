@@ -65,6 +65,17 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "tano_production"
 
   config.action_mailer.perform_caching = false
+  ActionMailer::Base.smtp_settings = {
+    address: ENV.fetch('MAILGUN_SMTP_SERVER', nil),
+    port: ENV.fetch('MAILGUN_SMTP_PORT', nil),
+    domain: 'ciudadaniaitalia.com',
+    user_name: ENV.fetch('MAILGUN_SMTP_LOGIN', nil),
+    password: ENV.fetch('MAILGUN_SMTP_PASSWORD', nil),
+    authentication: :plain,
+    enabled_starttls_auto: true
+  }
+
+  config.action_mailer.default_url_options = { host: 'ciudadaniaitalia.com' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
