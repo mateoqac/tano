@@ -63,20 +63,25 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "tano_production"
-
   config.action_mailer.perform_caching = false
-  ActionMailer::Base.smtp_settings = {
-    address: ENV.fetch('MAILERTOGO_SMTP_HOST', nil),
-    port: ENV.fetch('MAILERTOGO_SMTP_PORT', 587),
-    domain: ENV.fetch('MAILERTOGO_DOMAIN', 'ciudadaniaitalia.com'),
-    user_name: ENV.fetch('MAILERTOGO_SMTP_USER', nil),
-    password: ENV.fetch('MAILERTOGO_SMTP_PASSWORD', nil),
-    authentication: :plain,
-    enabled_starttls_auto: true
-  }
-  ActionMailer::Base.delivery_method = :smtp
-
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'ciudadaniaitalia.com' }
+
+  mailertogo_host     = ENV.fetch('MAILERTOGO_SMTP_HOST')
+  mailertogo_port     = ENV.fetch('MAILERTOGO_SMTP_PORT', 587)
+  mailertogo_user     = ENV.fetch('MAILERTOGO_SMTP_USER')
+  mailertogo_password = ENV.fetch('MAILERTOGO_SMTP_PASSWORD')
+  mailertogo_domain   = ENV.fetch('MAILERTOGO_DOMAIN', 'ciudadaniaitalia.com')
+
+  config.action_mailer.smtp_settings = {
+    address: mailertogo_host,
+    port: mailertogo_port,
+    user_name: mailertogo_user,
+    password: mailertogo_password,
+    domain: mailertogo_domain,
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
