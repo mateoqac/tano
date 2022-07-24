@@ -66,11 +66,11 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   ActionMailer::Base.smtp_settings = {
-    address: ENV.fetch('MAILGUN_SMTP_SERVER', nil),
-    port: ENV.fetch('MAILGUN_SMTP_PORT', nil),
-    domain: 'ciudadaniaitalia.com',
-    user_name: ENV.fetch('MAILGUN_SMTP_LOGIN', nil),
-    password: ENV.fetch('MAILGUN_SMTP_PASSWORD', nil),
+    address: ENV.fetch('MAILERTOGO_SMTP_HOST', nil),
+    port: ENV.fetch('MAILERTOGO_SMTP_PORT', 587),
+    domain: ENV.fetch('MAILERTOGO_DOMAIN', 'ciudadaniaitalia.com'),
+    user_name: ENV.fetch('MAILERTOGO_SMTP_USER', nil),
+    password: ENV.fetch('MAILERTOGO_SMTP_PASSWORD', nil),
     authentication: :plain,
     enabled_starttls_auto: true
   }
