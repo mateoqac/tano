@@ -108,4 +108,15 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+
+  config.lograge.enabled = true
+
+  config.lograge.formatter = Lograge::Formatters::Json.new
+  config.lograge.custom_options = lambda do |event|
+    {
+      ddsource: 'ruby',
+      params: event.payload[:params].reject { |k| %w[controller action].include? k }
+    }
+  end
 end
