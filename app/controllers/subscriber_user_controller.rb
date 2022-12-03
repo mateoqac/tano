@@ -6,7 +6,7 @@ class SubscriberUserController < ApplicationController
 
     return unless @subscriber_user.save
 
-    SubscriberUserMailer.subscribe(@subscriber_user).deliver
+    SubscriberUserMailer.subscribe(subscriber_user.email).deliver
     redirect_to root_path, info: 'Gracias por suscribirte, en breve recibiras un correo con mas informacion'
   end
 
