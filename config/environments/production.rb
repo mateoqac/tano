@@ -69,8 +69,8 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'ciudadaniaitalia.com' }
 
-  gmail_username = ENV.fetch('MAILGUN_SMTP_LOGIN')
-  gmail_password = ENV.fetch('MAILGUN_SMTP_PASSWORD')
+  gmail_username = ENV.fetch('MAIL_USERNAME')
+  gmail_password = ENV.fetch('MAIL_PASSWORD')
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {

@@ -58,6 +58,7 @@ gem 'rails-i18n'
 gem 'rubocop', require: false
 gem 'sidekiq', '~> 6.5'
 # gem 'view_component'
+gem 'ddtrace', require: 'ddtrace/auto_instrument'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
