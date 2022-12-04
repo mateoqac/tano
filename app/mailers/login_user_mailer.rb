@@ -6,10 +6,9 @@ class LoginUserMailer < ApplicationMailer
   #
   #   en.login_user_mailer.confirmation.subject
   #
-  def confirmation(login_user, confirmation_token)
-    @login_user = login_user
+  def confirmation(_login_user_email, confirmation_token)
     @confirmation_token = confirmation_token
 
-    mail to: @login_user.email, subject: 'Confirma tu cuenta.'
+    mail to: login_user_email, subject: 'Confirma tu cuenta.'
   end
 end
