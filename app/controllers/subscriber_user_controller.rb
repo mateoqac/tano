@@ -2,9 +2,9 @@
 
 class SubscriberUserController < ApplicationController
   def create
-    @subscriber_user = SubscriberUser.new(subscriber_user_params)
+    subscriber_user = SubscriberUser.new(subscriber_user_params)
 
-    return unless @subscriber_user.save
+    return unless subscriber_user.save
 
     SubscriberUserMailer.subscribe(subscriber_user.email).deliver
     redirect_to root_path, info: 'Gracias por suscribirte, en breve recibiras un correo con mas informacion'
